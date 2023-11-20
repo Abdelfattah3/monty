@@ -6,15 +6,18 @@
 */
 void pstr(stack_t **st, unsigned int line_number)
 {
+	stack_t *te;
+	(void)line_number;
+
+	te = *st;
 	if (!st || !(*st))
 	{
-		putchar('\n');
-		return;
+		printf("\n");
 	}
-	if ((*st)->n == 0 || ((*st)->n < 0 || (*st)->n > 127))
+	while (te != NULL && te->n != 0 && (te->n >= 0 && te->n <= 127))
 	{
-		return;
+		putchar(te->n);
+		te = te->next;
 	}
-	putchar((*st)->n);
-	pstr(&((*st)->next), (line_number + 1));
+	putchar('\n');
 }
