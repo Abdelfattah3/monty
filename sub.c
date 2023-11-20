@@ -7,7 +7,7 @@
 void subfunc(stack_t **st, unsigned int line_number)
 {
 	stack_t *te = NULL;
-	int tm;
+	int su;
 
 	if ((!st || !(*st)) || (!(*st)->next))
 	{
@@ -18,8 +18,9 @@ void subfunc(stack_t **st, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	te = *st;
-	tm = (*st)->n - te->next->n;
-	te->next->n = tm;
-	pop(st, line_number);
+	su = (te->n - te->next->n);
+	*st = te->next;
+	(*st)->n = su;
+	free(te);
 }
 

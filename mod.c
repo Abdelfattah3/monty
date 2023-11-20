@@ -7,7 +7,7 @@
 void modfunc(stack_t **st, unsigned int line_number)
 {
 	stack_t *te = NULL;
-	int tm;
+	int mo;
 
 	if ((!st || !(*st)) || (!(*st)->next))
 	{
@@ -17,7 +17,8 @@ void modfunc(stack_t **st, unsigned int line_number)
 		fclose(glob_var.bf);
 		exit(EXIT_FAILURE);
 	}
-	if ((*st)->n == 0)
+	te = *st;
+	if (te->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_number);
 		free_list(*st);
@@ -25,8 +26,8 @@ void modfunc(stack_t **st, unsigned int line_number)
 		fclose(glob_var.bf);
 		exit(EXIT_FAILURE);
 	}
-	te = *st;
-	tm = te->next->n % (*st)->n;
-	te->next->n = tm;
-	pop(st, line_number);
+	mo = (te->next->n % te->n);
+	*st = te->next;
+	(*st)->n = mo;
+	free(te);
 }

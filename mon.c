@@ -1,7 +1,5 @@
 #include "monty.h"
-
 g_t glob_var = {{NULL, NULL}, NULL, NULL};
-
 /**
 * main - program build a stack
 * @ac: number of arguments
