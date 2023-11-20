@@ -17,7 +17,8 @@ int main(int ac, char **av)
 
 	instruction_t opco[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
-		{"swap", swap}, {"add", add}, {"nop", nop}, {NULL, NULL}};
+		{"swap", swap}, {"add", add}, {"nop", nop}, {"sub", subfunc},
+		{"mul", mulfunc}, {"div", divfunc}, {"mod", modfunc}, {NULL, NULL}};
 	if (ac != 2)
 		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
 
@@ -46,7 +47,6 @@ int main(int ac, char **av)
 		check_inst(&st, opco, ln);
 		ln++, free(a);
 	}
-	fclose(glob_var.bf), free(glob_var.insa);
-	free_list(st);
+	fclose(glob_var.bf), free(glob_var.insa), free_list(st);
 	return (0);
 }
