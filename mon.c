@@ -16,7 +16,8 @@ int main(int ac, char **av)
 	instruction_t opco[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
 		{"swap", swap}, {"add", add}, {"nop", nop}, {"sub", subfunc},
-		{"mul", mulfunc}, {"div", divfunc}, {"mod", modfunc}, {NULL, NULL}};
+		{"mul", mulfunc}, {"div", divfunc}, {"mod", modfunc}, {"pchar", pchar},
+		{"pstr", pstr}, {NULL, NULL}};
 	if (ac != 2)
 		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
 
@@ -30,7 +31,6 @@ int main(int ac, char **av)
 		glob_var.insa = a;
 		if (r == EOF)
 			break;
-
 		m = 0, glob_var.ins[m] = strtok(glob_var.insa, " \n");
 		if (pars(ln, a))
 		{

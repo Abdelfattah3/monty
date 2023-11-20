@@ -67,6 +67,8 @@ void subfunc(stack_t **st, unsigned int line_number);
 void divfunc(stack_t **st, unsigned int line_number);
 void mulfunc(stack_t **st, unsigned int line_number);
 void modfunc(stack_t **st, unsigned int line_number);
+void pchar(stack_t **st, unsigned int line_number);
+void pstr(stack_t **st, unsigned int line_number);
 int pars(size_t ln, char *a);
 int ch_int(char *a);
 void push_e(stack_t *st, size_t ln);
